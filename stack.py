@@ -15,7 +15,7 @@ top: 스택의 가장 위에 있는 정수를 출력한다. 만약 스택에 들
 출력
 출력해야하는 명령이 주어질 때마다, 한 줄에 하나씩 출력한다.
 
-예제 입력 1 
+예제 입력 1
 14
 push 1
 push 2
@@ -46,6 +46,7 @@ top
 3
 """
 from typing import List
+import sys
 
 
 stack: List[int] = []
@@ -56,6 +57,8 @@ def push(x: int) -> None:
 
 
 def pop() -> int:
+    if empty():
+        return -1
     return stack.pop()
 
 
@@ -64,9 +67,9 @@ def size() -> int:
 
 
 def empty() -> int:
-    isEmpty: int = 1
+    isEmpty: int = 0
     if len(stack) == 0:
-        isEmpty = 0
+        isEmpty = 1
     return isEmpty
 
 
@@ -74,10 +77,27 @@ def top() -> int:
     if empty():
         return -1
     else:
-        return stack[size()]
+        return stack[size()-1]
 
 
-cnt: int = int(input())
+cnt: int = int(sys.stdin.readline())
 for _ in range(cnt):
-    command, val = input().split()
-    print(command + " " + val)
+    command = sys.stdin.readline().split()
+    if command[0] == "push":
+        push(command[1])
+
+    elif command[0] == "top":
+        val: int = top()
+        print(val)
+
+    elif command[0] == "size":
+        val: int = size()
+        print(val)
+
+    elif command[0] == "empty":
+        val: int = empty()
+        print(val)
+
+    elif command[0] == "pop":
+        val: int = pop()
+        print(val)
