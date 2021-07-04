@@ -21,22 +21,22 @@
 2
 1
 예제 출력 1 
-+
-+
-+
-+
--
--
-+
-+
--
-+
-+
--
--
--
--
--
++ 
++ 
++ 
++          
+- 
+-  
++ 
++ 
+- 
++  
++ 
+-          
+- 
+- 
+- 
+- 
 예제 입력 2 
 5
 1
@@ -47,3 +47,30 @@
 예제 출력 2 
 NO
 """
+from typing import List
+import sys
+
+
+if __name__ == "__main__":
+    n: int = int(sys.stdin.readline())
+    a: List[int] = []
+    b: List[int] = []
+    for _ in range(n):
+        a.append(int(sys.stdin.readline()))
+    a_idx = 0
+    b.append(1)
+    print("+")
+    val = 2
+    while a_idx <= len(a)-1:
+        if a[a_idx] != b[len(b)-1]:
+            b.append(val)
+            val += 1
+            print("+")
+        else:
+            b.pop()
+            a_idx += 1
+            print("-")
+    
+            
+        
+        
