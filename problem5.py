@@ -31,17 +31,14 @@ from typing import List
 
 
 def S(a: List[int], b: List[int], n: int) -> int:
-    sort_a: List[int] = sorted(a)
-    idx = []
-    copy_b: List[int] = b
+    s: int = 0
     for i in range(n):
-        _a: int = max(copy_b)
-        _b: int = b.index(_a)
-        idx.append(_b)
-        del copy_b[_b]
-    for i in result:
-        
-    return 0
+        k: int = min(a)
+        j: int = max(b)
+        s = s + k * j
+        a.pop(a.index(k))
+        b.pop(b.index(j))
+    return s
 
 
 n: int = int(sys.stdin.readline())
