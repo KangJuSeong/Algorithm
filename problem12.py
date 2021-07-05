@@ -23,4 +23,20 @@ import sys
 
 
 if __name__ == "__main__":
-    data: List[int] = list(map(int, sys.stdin.readline().split()))
+    n, k = map(int, sys.stdin.readline().split())
+    p: List[int] = [i for i in range(1, n+1)]
+    result: List[int] = []
+    idx: int = k
+    result.append(p.pop(idx-1))
+    while len(result) != n:
+        idx += k
+        if idx > n:
+            idx = idx % n
+        
+    for i in range(len(result)):
+        if i == len(result)-1:
+            print(str(result[i])+">")
+        elif i == 0:
+            print("<"+str(result[i])+", ", end="")
+        else:
+            print(str(result[i])+", ", end="")
