@@ -10,7 +10,7 @@
 출력
 입력된 수열을 만들기 위해 필요한 연산을 한 줄에 한 개씩 출력한다. push연산은 +로, pop 연산은 -로 표현하도록 한다. 불가능한 경우 NO를 출력한다.
 
-예제 입력 1 
+예제 입력 1
 8
 4
 3
@@ -20,24 +20,24 @@
 5
 2
 1
-예제 출력 1 
-+ 
-+ 
-+ 
-+          
-- 
--  
-+ 
-+ 
-- 
-+  
-+ 
--          
-- 
-- 
-- 
-- 
-예제 입력 2 
+예제 출력 1
++
++
++
++
+-
+-
++
++
+-
++
++
+-
+-
+-
+-
+-
+예제 입력 2
 5
 1
 2
@@ -55,22 +55,40 @@ if __name__ == "__main__":
     n: int = int(sys.stdin.readline())
     a: List[int] = []
     b: List[int] = []
+    print_list: List[str] = []
+    compare_list: List[str] = []
     for _ in range(n):
         a.append(int(sys.stdin.readline()))
+    max_val: int = max(a)
     a_idx = 0
     b.append(1)
-    print("+")
+    print_list.append('+')
     val = 2
     while a_idx <= len(a)-1:
-        if a[a_idx] != b[len(b)-1]:
+        if val > max_val:
+            break
+        if len(b) == 0:
+            b.append(val)
+            print_list.append('+')
+            val += 1
+            continue
+        elif a[a_idx] != b[len(b)-1]:
             b.append(val)
             val += 1
-            print("+")
+            print_list.append('+')
         else:
-            b.pop()
+            data: int = b.pop()
+            compare_list.append(data)
             a_idx += 1
-            print("-")
-    
-            
-        
-        
+            print_list.append('-')
+    size: int = len(b)
+    for _ in range(size):
+        data: int = b.pop()
+        compare_list.append(data)
+        print_list.append('-')
+    if compare_list == a:
+        for i in print_list:
+            print(i)
+    else:
+        print("NO")
+
