@@ -26,13 +26,12 @@ if __name__ == "__main__":
     n, k = map(int, sys.stdin.readline().split())
     p: List[int] = [i for i in range(1, n+1)]
     result: List[int] = []
-    idx: int = k
-    result.append(p.pop(idx-1))
+    idx: int = 0
     while len(result) != n:
-        idx += k
-        if idx > n:
-            idx = idx % n
-        
+        idx = idx + k - 1
+        if idx >= len(p):
+            idx = idx % len(p)
+        result.append(p.pop(idx))
     for i in range(len(result)):
         if i == len(result)-1:
             print(str(result[i])+">")
