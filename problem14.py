@@ -71,7 +71,7 @@ def BT(k, n, seq):
         return
     for i in range(n, seq[0]+1):
         ans[k] = seq[i]
-        BT(k+1, n+1, seq)
+        BT(k+1, i+1, seq)
 
 
 if __name__ == "__main__":
