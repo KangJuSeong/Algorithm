@@ -61,13 +61,14 @@
 3 5 8 13 21 34
 """
 import sys
+from typing import List
 
-ans = [0 for i in range(6)]
+ans: List[int] = [0 for i in range(6)]
 
 
-def BT(k, n, seq):
+def BT(k: int, n: int, seq: List[int]):
     if k == 6:
-        print(ans)
+        print(" ".join(map(str, ans)))
         return
     for i in range(n, seq[0]+1):
         ans[k] = seq[i]
@@ -76,8 +77,8 @@ def BT(k, n, seq):
 
 if __name__ == "__main__":
     while(1):
-        seq = list(map(int, sys.stdin.readline().split()))
+        seq: List[int] = list(map(int, sys.stdin.readline().split()))
         if seq[0] == 0:
             break
         BT(0, 1, seq)
-        print("end")
+        print()
