@@ -23,9 +23,9 @@ cnt: int = 0
 
 def BT(i: int, S: int, ans: List[int], arr: List[int], idx: int, n: int):
     global cnt
-    print(ans)
-    if sum(ans) == S:
-        cnt = cnt + 1
+    if idx == i:
+        if sum(ans) == S:
+            cnt = cnt + 1
         return
     for k in range(n, len(arr)):
         ans[idx] = arr[k]
@@ -35,6 +35,6 @@ def BT(i: int, S: int, ans: List[int], arr: List[int], idx: int, n: int):
 N, S = map(int, sys.stdin.readline().split())
 arr: List[int] = list(map(int, sys.stdin.readline().split()))
 for i in range(1, N+1):
-    ans: List[int] = [1000001 for i in range(i)]
+    ans: List[int] = [i for i in range(i)]
     BT(i, S, ans, arr, 0, 0)
 print(cnt)
