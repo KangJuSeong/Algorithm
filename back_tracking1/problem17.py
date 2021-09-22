@@ -16,5 +16,11 @@ N이 주어졌을 때, 퀸을 놓는 방법의 수를 구하는 프로그램을 
 92
 """
 import sys
+from typing import List
 
+
+if __name__ == "__main__":
+    n_queen: List = []
+    print(n_queen)
+    print("Hello my name is kang JuSeong")
 
