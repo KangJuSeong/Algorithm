@@ -39,8 +39,9 @@ def block(map, y, x, h, w):
                 _map[y][x] = 1
                 next_y, next_x = next(_map)
                 block(_map, next_y, next_x, h, w)
-        next_y, next_x = next(map)
-        block(map, next_y, next_x, h, w)
+        else:
+            next_y, next_x = next(map)
+            block(map, next_y, next_x, h, w)
 
 
 
@@ -71,11 +72,3 @@ if __name__ == '__main__':
         block(map, start_y, start_x, h, w)
         print(result)
         result = 0
-            
-                    
-# list1 = [0, 1, 2]
-# list2 = list1[:]
-# list1[0] = 20
-# print(list1)
-# print(list2)
-        
