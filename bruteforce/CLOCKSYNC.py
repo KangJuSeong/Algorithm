@@ -10,6 +10,9 @@ SWITCH = {
          }
 
 
+def check_all_twelve(clocks):
+    return
+
 def switching_clock():
     return 
 
