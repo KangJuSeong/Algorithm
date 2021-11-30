@@ -10,16 +10,17 @@ def rotate(key):
 
 def checkFull(key, lock, N):
     size = len(key)
+    cnt = 0
     for i in range(size):
         for j in range(size):
-            if key[i][j] == 1 and lock[i][j] != 2:
-                lock[i][j] = 1
-    cnt = 0
+            if key[i][j] == 1 and lock[i][j] == 1:
+                return 0
+            elif key[i][j] == 1 and lock[i][j] != 2 and lock[i][j] != 1:
+                cnt += 1
     for i in range(size):
         for j in range(size):
             if lock[i][j] == 1:
                 cnt += 1
-    print(lock)
     if cnt == N * N:
         return 1
     else:
