@@ -32,7 +32,7 @@ def solution(p):
     else:
         answer = '(' + solution(v) + ')'
         for i in u[1:-1]:
-            if i== '(':
+            if i == '(':
                 answer += ')'
             else:
                 answer += '('
