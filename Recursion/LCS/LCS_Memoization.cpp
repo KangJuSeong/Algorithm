@@ -17,7 +17,7 @@ int main(){
 		int i, j;
 		for(i=0;i<=m;i++) {
 			for(j=0;j<=n;j++){
-				memo[i][j] = 0;
+				memo[i][j] = -1;
 			}
 		}
 		cout << LCS(s, t, m, n) << endl;
@@ -26,19 +26,14 @@ int main(){
 }
 
 int LCS(string s, string t, int m, int n) {
-	int i,j;
-	for(i=1;i<=m;i++) {
-		for(j=1;j<=n;j++) {
-			if (s[i-1] == t[j-1]){
-				L[i][j] = L[i-1][j-1] + 1;
-				S[i][j] = 0;
-			} else {
-				L[i][j] = max(L[i][j-1], L[i-1][j]);
-				if (L[i][j] == L[i][j-1]) S[i][j] = 1;
-				else S[i][j] = 2;
-			}
-		}
+	if (m == 0 || n == 0) return 0;
+	if (memo[m-1][n-1] != -1) return memo[m-1][n-1];
+	if (s[m-1] == t[n-1]) {
+		memo[m-1][n-1] = LCS(s, t, m-1, n-1) + 1;
+		return memo[m-1][n-1];
+	} else {
+		memo[m-1][n-1] = max(LCS(s, t, m, n-1), LCS(s, t, m-1, n));
+		return memo[m-1][n-1];
 	}
-	return L[m][n];
 }
 
