@@ -2,12 +2,12 @@
 using namespace std;
 
 int swp;
-int heap[1001];
+int heap[2002];
 int heapSort(int n);
 void fixHeap(int root, int k, int size);
 
 void initHeap() {
-	for(int i=0;i<=1001;i++) {
+	for(int i=0;i<2002;i++) {
 		heap[i] = 0;
 	}
 }
