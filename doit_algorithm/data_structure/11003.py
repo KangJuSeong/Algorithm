@@ -14,4 +14,3 @@ for i in range(N):
     if D[0][1] <= i-L:
         D.popleft()
     print(f"{D[0][0]} ", end='')
-    
